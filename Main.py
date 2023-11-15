@@ -18,6 +18,40 @@
 #      Solution Goes Here ->
 # ---------------------------------
 
+def minutes_to_seconds(minutes):
+    return minutes * 60
+
+def hours_to_seconds(hours):
+    return hours * 3600
+
+def cups_of_coffee(cups):
+    return cups * 7 * 52
+
+seconds_in_day = 24 * 60 * 60
+
+hours_in_june = 30 * 24
+
+minutes_in_august = 31 * 24 * 60
+
+minutes_in_year = 365 * 24 * 60
+
+minutes = "minutes"
+annual= " in a year"
+coffee= " cups of coffee"
+
+print(minutes_to_seconds(1))
+print("There are " + str(minutes_to_seconds(1)) + " seconds in " + str(1) + " minute")
+print(hours_to_seconds(1))
+print("There are " + str(hours_to_seconds(1)) + " seconds in " + str(1) + " hour")
+print(seconds_in_day)
+print("There are " + str(seconds_in_day) + " seconds in " + str(1) + " day")
+print(hours_in_june)
+print("There are " + str(hours_in_june) + " hours in June")
+print(minutes_in_august)
+print("There are " + str(minutes_in_august) + " minutes in August")
+
+print( "There are " +str(cups_of_coffee(5)) + str(coffee + annual) ) #assuming 1 cup of coffee per day
+print("there are " +str(minutes_in_year) +  " minutes in a year")
 
 
 #  2) Middle letter
@@ -29,7 +63,16 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
-
+def mid(string):
+    length = len(string)
+    if length % 2 == 0:
+        return ""
+    else:
+        middle_index = length // 2
+        return string[middle_index]
+    
+print(mid("abcdefghijk"))
+print(mid("aaaa"))
 
 # ### 3) Hide the credit card number
 # Write a function in Python that accepts a credit card number. It should return a string where all the characters are hidden with an asterisk except the last four. For example, if the function gets sent "1234567894444", then it should return "*********4444".
@@ -38,7 +81,9 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
-
+def hide_card_number(card_number):
+    return "*" * (len(card_number) - 4) + card_number[-4:]
+print(hide_card_number("1234567894444"))
 
 
 # ### 4) Online status
@@ -47,12 +92,12 @@
 # For example, consider the following dictionary:
 
 # ```
-# statuses = {
-#     "John": "online",
-#     "Paul": "offline",
-#     "George": "online",
-#     "Ringo": "offline"
-# }
+statuses = {
+    "John": "online",
+    "Paul": "offline",
+    "George": "online",
+    "Ringo": "offline"
+}
 
 # ```
 
@@ -65,7 +110,14 @@
 #      Solution Goes Here ->
 # ---------------------------------
 
+def online_count(statuses):
+    count = 0
+    for status in statuses.values():
+        if status == "online":
+            count += 1
+    return count
 
+print(online_count(statuses))
 
 #  5) Give me the discount
 # Create a function in Python that accepts two parameters. The first should be the full price of an item as an integer. The second should be the discount percentage as an integer.
@@ -74,7 +126,10 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+def apply_discount(price, discount):
+    return price * (100 - discount) / 100
 
+print(apply_discount(100, 20))
 
 #  6) Pythagorean Theorum
 
@@ -85,7 +140,10 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+def calculate_hypotenuse(adjacent, opposite):
+    return (adjacent ** 2 + opposite ** 2) ** 0.5
 
+print(calculate_hypotenuse(3, 4))
 
 #  7) Fibonacci Sequence 
 # Everyone's favorite Math Problem!
@@ -98,3 +156,11 @@
 # ---------------------------------
 #      Solution Goes Here ->
 # ---------------------------------
+def fibonacci_sequence(start1, start2):
+    sequence = [start1, start2]
+    for i in range(9):
+        next_number = sequence[-1] + sequence[-2]
+        sequence.append(next_number)
+    return sequence
+
+print(fibonacci_sequence(100, 200))
